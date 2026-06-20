@@ -1,316 +1,441 @@
 # Codility Reviewer
+> Complete Python, Pandas, and SQL Reviewer for Coding Assessments
 
 
----
+# 🐍 Python
 
-# 🐍 Python Functions
+## Functions
 
-## def
+### Definition
 
-Used to define a function.
+A function is a reusable block of code.
+
+### Syntax
+
+```python
+def function_name(parameters):
+    return value
+```
+
+### Example
+
+```python
+def add(a, b):
+    return a + b
+
+print(add(5, 3))
+```
+
+Output:
+
+```text
+8
+```
+
+### When to Use
+
+- Reuse code
+- Organize logic
+- Avoid repetition
+
+### Common Mistakes
+
+❌ Using print instead of return
+
+```python
+def add(a, b):
+    print(a + b)
+```
+
+✅ Correct
 
 ```python
 def add(a, b):
     return a + b
 ```
 
-### Common Mistake
-
-❌ Missing colon
-
-```python
-def add(a, b)
-```
-
-✅ Correct
-
-```python
-def add(a, b):
-```
-
 ---
 
-## return
+## For Loops
 
-Returns a value from a function.
+### Definition
+
+Repeats code multiple times.
+
+### Syntax
 
 ```python
-def square(x):
-    return x * x
+for item in iterable:
+    # code
 ```
 
-### Common Mistake
-
-❌ Using print instead of return
+### Example
 
 ```python
-def square(x):
-    print(x * x)
-```
-
-✅ Correct
-
-```python
-def square(x):
-    return x * x
-```
-
----
-
-## Parameters
-
-```python
-def greet(name):
-    return f"Hello {name}"
+for i in range(5):
+    print(i)
 ```
 
 Output:
 
 ```text
-Hello Ana
-```
-
----
-
-## Positional Arguments
-
-```python
-def divide(a, b):
-    return a / b
-
-divide(10, 2)
-```
-
----
-
-## Keyword Arguments
-
-```python
-def divide(a, b):
-    return a / b
-
-divide(b=2, a=10)
-```
-
----
-
-## Default Arguments
-
-```python
-def power(base, exp=2):
-    return base ** exp
-
-power(3)
-```
-
-Output:
-
-```text
-9
-```
-
----
-
-## *args
-
-Accept unlimited positional arguments.
-
-```python
-def total(*args):
-    return sum(args)
-
-print(total(1, 2, 3))
-```
-
-Output:
-
-```text
-6
-```
-
----
-
-## **kwargs
-
-Accept unlimited keyword arguments.
-
-```python
-def info(**kwargs):
-    return kwargs
-
-print(info(name="Ana", age=20))
-```
-
-Output:
-
-```python
-{'name': 'Ana', 'age': 20}
-```
-
----
-
-## lambda
-
-Anonymous one-line function.
-
-```python
-square = lambda x: x * x
-
-print(square(5))
-```
-
-Output:
-
-```text
-25
-```
-
-Common use:
-
-```python
-sorted(data, key=lambda x: x[1])
-```
-
----
-
-# 🔥 Most Important Python Built-ins
-
-## len()
-
-```python
-len([1, 2, 3])
-```
-
-Output:
-
-```text
-3
-```
-
----
-
-## sum()
-
-```python
-sum([1, 2, 3])
-```
-
-Output:
-
-```text
-6
-```
-
----
-
-## min()
-
-```python
-min([4, 1, 7])
-```
-
-Output:
-
-```text
+0
 1
+2
+3
+4
+```
+
+### Common Mistakes
+
+❌
+
+```python
+for i in range(len(numbers)+1):
+```
+
+✅
+
+```python
+for i in range(len(numbers)):
 ```
 
 ---
 
-## max()
+## Conditions
+
+### if
 
 ```python
-max([4, 1, 7])
+age = 18
+
+if age >= 18:
+    print("Adult")
+```
+
+### if / else
+
+```python
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")
+```
+
+### if / elif / else
+
+```python
+score = 85
+
+if score >= 90:
+    print("A")
+elif score >= 80:
+    print("B")
+else:
+    print("C")
+```
+
+---
+
+## Lists
+
+### Definition
+
+Stores multiple values.
+
+### Example
+
+```python
+numbers = [1, 2, 3, 4]
+```
+
+### Common Operations
+
+```python
+numbers.append(5)
+
+numbers.remove(2)
+
+len(numbers)
+
+max(numbers)
+
+min(numbers)
+```
+
+### Loop Through List
+
+```python
+for num in numbers:
+    print(num)
+```
+
+---
+
+## Strings
+
+### split()
+
+Converts string → list
+
+```python
+text = "apple,banana,orange"
+
+result = text.split(",")
+```
+
+Output:
+
+```python
+['apple', 'banana', 'orange']
+```
+
+---
+
+### lower()
+
+```python
+text = "HELLO"
+
+print(text.lower())
 ```
 
 Output:
 
 ```text
-7
+hello
 ```
 
 ---
 
-## enumerate()
-
-Returns index and value together.
+### replace()
 
 ```python
-names = ["Ana", "Bob"]
+text = "Hello World"
 
-for i, name in enumerate(names):
-    print(i, name)
+print(text.replace("World", "Python"))
 ```
 
 Output:
 
 ```text
-0 Ana
-1 Bob
+Hello Python
 ```
 
 ---
 
-## zip()
+### join()
 
-Loops through multiple lists simultaneously.
+Converts list → string
 
 ```python
-a = [1, 2]
-b = [3, 4]
+fruits = ["apple", "banana", "orange"]
 
-for x, y in zip(a, b):
-    print(x, y)
+result = ",".join(fruits)
 ```
 
 Output:
 
 ```text
-1 3
-2 4
+apple,banana,orange
 ```
 
 ---
 
-## List Comprehension
+## Dictionaries & Counting
+
+### Dictionary
 
 ```python
-squares = [x*x for x in range(5)]
+student = {
+    "name": "John",
+    "age": 20
+}
+```
+
+---
+
+### Frequency Counting
+
+```python
+words = ["apple", "banana", "apple"]
+
+count = {}
+
+for word in words:
+
+    if word in count:
+        count[word] += 1
+
+    else:
+        count[word] = 1
+
+print(count)
 ```
 
 Output:
 
 ```python
-[0, 1, 4, 9, 16]
+{
+    "apple": 2,
+    "banana": 1
+}
 ```
 
 ---
 
-## any()
+### Counter
 
 ```python
-any(x > 0 for x in [-1, -2, 3])
+from collections import Counter
+
+words = ["apple", "banana", "apple"]
+
+print(Counter(words))
+```
+
+Output:
+
+```python
+Counter({'apple': 2, 'banana': 1})
+```
+
+---
+
+## Max / Min Logic
+
+### Maximum
+
+```python
+numbers = [10, 5, 20, 8]
+
+print(max(numbers))
 ```
 
 Output:
 
 ```text
-True
+20
 ```
 
----
-
-## all()
+### Minimum
 
 ```python
-all(x > 0 for x in [1, 2, 3])
+print(min(numbers))
 ```
 
 Output:
 
 ```text
-True
+5
 ```
+
+### Manual Maximum
+
+```python
+largest = numbers[0]
+
+for num in numbers:
+
+    if num > largest:
+        largest = num
+```
+
+---
+
+## Date & Month Handling
+
+### Extract Year
+
+```python
+date = "2024-05-12"
+
+year = date.split("-")[0]
+```
+
+Output:
+
+```text
+2024
+```
+
+---
+
+### Extract Month
+
+```python
+month = date.split("-")[1]
+```
+
+Output:
+
+```text
+05
+```
+
+---
+
+### Convert Month Number to Name
+
+```python
+months = {
+    "01": "January",
+    "02": "February",
+    "03": "March",
+    "04": "April",
+    "05": "May"
+}
+
+print(months["05"])
+```
+
+Output:
+
+```text
+May
+```
+
+---
+
+## Edge Cases
+
+Always test:
+
+```python
+[]
+```
+
+Empty List
+
+```python
+[5]
+```
+
+One Element
+
+```python
+[1,1,1]
+```
+
+Duplicates
+
+```python
+[-5,-10,-1]
+```
+
+Negative Numbers
+
+```python
+""
+```
+
+Empty String
+
+```python
+range(100000)
+```
+
+Large Input
 
 ---
 
@@ -324,34 +449,33 @@ import pandas as pd
 
 ---
 
-## Series
-
-```python
-s = pd.Series([10, 20, 30])
-```
-
----
-
-## DataFrame
-
-```python
-df = pd.DataFrame({
-    "a": [1, 2],
-    "b": [3, 4]
-})
-```
-
----
-
-## read_csv()
-
-```python
-df = pd.read_csv("data.csv")
-```
-
----
-
 ## drop_duplicates()
+
+### Definition
+
+Removes duplicate rows.
+
+### Syntax
+
+```python
+df.drop_duplicates()
+```
+
+### Example
+
+```python
+df = df.drop_duplicates()
+```
+
+### Common Mistake
+
+❌
+
+```python
+df.drop_duplicates()
+```
+
+✅
 
 ```python
 df = df.drop_duplicates()
@@ -359,15 +483,19 @@ df = df.drop_duplicates()
 
 ---
 
-## dropna()
+## rename()
+
+### Definition
+
+Renames columns.
+
+### Syntax
 
 ```python
-df = df.dropna()
+df.rename(columns={})
 ```
 
----
-
-## rename()
+### Example
 
 ```python
 df = df.rename(
@@ -379,7 +507,23 @@ df = df.rename(
 
 ---
 
+## dropna()
+
+### Definition
+
+Removes rows with missing values.
+
+### Example
+
+```python
+df = df.dropna()
+```
+
+---
+
 ## Filtering Rows
+
+### Example
 
 ```python
 df = df[df["Age"] > 18]
@@ -388,6 +532,8 @@ df = df[df["Age"] > 18]
 ---
 
 ## astype("category")
+
+### Example
 
 ```python
 df["Department"] = (
@@ -400,17 +546,21 @@ df["Department"] = (
 
 ## Create New Column
 
+### Example
+
 ```python
 df["Full_Name"] = (
-    df["First_Name"] +
-    " " +
-    df["Last_Name"]
+    df["First_Name"]
+    + " "
+    + df["Last_Name"]
 )
 ```
 
 ---
 
 ## Reorder Columns
+
+### Example
 
 ```python
 df = df[
@@ -422,39 +572,86 @@ df = df[
 
 ## Return DataFrame
 
+### Example
+
 ```python
 return df
 ```
 
 ---
 
-# 🗄️ SQL Fundamentals
+# 🗄️ SQL
+
+# Data Retrieval
 
 ## SELECT
 
-Retrieve data.
+### Definition
+
+Retrieves columns from a table.
+
+### Syntax
+
+```sql
+SELECT column1, column2
+FROM table_name;
+```
+
+### Example
+
+```sql
+SELECT name, salary
+FROM employees;
+```
+
+### When to Use
+
+- Retrieve data
+- Reporting
+- Analytics
+
+### Common Mistakes
+
+❌
 
 ```sql
 SELECT *
 FROM employees;
 ```
 
+When only a few columns are needed.
+
 ---
 
 ## DISTINCT
 
-Remove duplicates.
+### Definition
+
+Removes duplicate rows.
+
+### Syntax
+
+```sql
+SELECT DISTINCT column
+FROM table;
+```
+
+### Example
 
 ```sql
 SELECT DISTINCT department
 FROM employees;
 ```
 
+### Notes
+
+Checks uniqueness of the entire selected combination.
+
 ---
 
-## WHERE
+# Filtering
 
-Filter rows.
+## WHERE
 
 ```sql
 SELECT *
@@ -462,23 +659,214 @@ FROM employees
 WHERE salary > 50000;
 ```
 
+Used before grouping.
+
 ---
 
-## ORDER BY
-
-Sort results.
+## AND
 
 ```sql
 SELECT *
 FROM employees
-ORDER BY salary DESC;
+WHERE salary > 50000
+AND department = 'IT';
+```
+
+All conditions must be true.
+
+---
+
+## OR
+
+```sql
+SELECT *
+FROM employees
+WHERE department = 'IT'
+OR department = 'HR';
+```
+
+At least one condition must be true.
+
+---
+
+## IN
+
+```sql
+SELECT *
+FROM employees
+WHERE department IN ('IT','HR');
+```
+
+Cleaner than multiple OR statements.
+
+---
+
+## NOT IN
+
+```sql
+SELECT *
+FROM employees
+WHERE department NOT IN ('IT','HR');
+```
+
+⚠️ Beware NULL values.
+
+---
+
+## BETWEEN
+
+```sql
+SELECT *
+FROM employees
+WHERE salary BETWEEN 40000 AND 60000;
+```
+
+Inclusive range.
+
+---
+
+## LIKE
+
+```sql
+SELECT *
+FROM employees
+WHERE name LIKE 'A%';
+```
+
+Wildcards:
+
+```text
+% = many characters
+_ = one character
 ```
 
 ---
 
-## GROUP BY
+## IS NULL
 
-Group records.
+```sql
+SELECT *
+FROM employees
+WHERE manager_id IS NULL;
+```
+
+---
+
+## IS NOT NULL
+
+```sql
+SELECT *
+FROM employees
+WHERE manager_id IS NOT NULL;
+```
+
+---
+
+# Sorting
+
+## ORDER BY
+
+```sql
+SELECT *
+FROM employees
+ORDER BY salary;
+```
+
+---
+
+## ASC
+
+```sql
+ORDER BY salary ASC;
+```
+
+Default sort order.
+
+---
+
+## DESC
+
+```sql
+ORDER BY salary DESC;
+```
+
+Highest to lowest.
+
+---
+
+## LIMIT
+
+```sql
+SELECT *
+FROM employees
+ORDER BY salary DESC
+LIMIT 5;
+```
+
+Top 5 records.
+
+---
+
+# Aggregations
+
+## COUNT()
+
+```sql
+SELECT COUNT(*)
+FROM employees;
+```
+
+Counts rows.
+
+---
+
+## SUM()
+
+```sql
+SELECT SUM(salary)
+FROM employees;
+```
+
+Total value.
+
+---
+
+## AVG()
+
+```sql
+SELECT AVG(salary)
+FROM employees;
+```
+
+Average value.
+
+---
+
+## MIN()
+
+```sql
+SELECT MIN(salary)
+FROM employees;
+```
+
+Smallest value.
+
+---
+
+## MAX()
+
+```sql
+SELECT MAX(salary)
+FROM employees;
+```
+
+Largest value.
+
+---
+
+# Grouping
+
+## GROUP BY
 
 ```sql
 SELECT department,
@@ -487,11 +875,11 @@ FROM employees
 GROUP BY department;
 ```
 
+Groups records.
+
 ---
 
 ## HAVING
-
-Filter grouped records.
 
 ```sql
 SELECT department,
@@ -501,113 +889,154 @@ GROUP BY department
 HAVING COUNT(*) > 5;
 ```
 
----
-
-## JOIN
-
-Combine tables.
-
-```sql
-SELECT e.name,
-       d.department
-FROM employees e
-JOIN departments d
-ON e.employee_id = d.employee_id;
-```
+Filters groups.
 
 ---
 
-## COUNT
+# Conditional Logic
+
+## CASE
 
 ```sql
-SELECT COUNT(*)
+SELECT name,
+CASE
+    WHEN salary > 50000
+    THEN 'High'
+    ELSE 'Low'
+END AS tier
 FROM employees;
 ```
 
----
-
-## SUM
-
-```sql
-SELECT SUM(salary)
-FROM employees;
-```
+SQL equivalent of if/else.
 
 ---
 
-## AVG
+# Joins
+
+## INNER JOIN
 
 ```sql
-SELECT AVG(salary)
-FROM employees;
-```
-
----
-
-## MIN
-
-```sql
-SELECT MIN(salary)
-FROM employees;
-```
-
----
-
-## MAX
-
-```sql
-SELECT MAX(salary)
-FROM employees;
-```
-
----
-
-## WITH (CTE)
-
-```sql
-WITH avg_salary AS (
-
-    SELECT AVG(salary) AS avg_sal
-    FROM employees
-
-)
-
 SELECT *
+FROM employees e
+INNER JOIN departments d
+ON e.dept_id = d.id;
+```
+
+Matching rows only.
+
+---
+
+## LEFT JOIN
+
+```sql
+SELECT *
+FROM employees e
+LEFT JOIN departments d
+ON e.dept_id = d.id;
+```
+
+Keep all left rows.
+
+---
+
+## RIGHT JOIN
+
+```sql
+SELECT *
+FROM employees e
+RIGHT JOIN departments d
+ON e.dept_id = d.id;
+```
+
+Keep all right rows.
+
+---
+
+## FULL JOIN
+
+```sql
+SELECT *
+FROM employees e
+FULL JOIN departments d
+ON e.dept_id = d.id;
+```
+
+Keep all rows from both tables.
+
+---
+
+# Set Operations
+
+## UNION
+
+```sql
+SELECT name
 FROM employees
-WHERE salary >
+
+UNION
+
+SELECT name
+FROM contractors;
+```
+
+Removes duplicates.
+
+---
+
+## UNION ALL
+
+```sql
+SELECT name
+FROM employees
+
+UNION ALL
+
+SELECT name
+FROM contractors;
+```
+
+Keeps duplicates.
+
+---
+
+# Subqueries
+
+## Single Row Subquery
+
+```sql
+SELECT name
+FROM employees
+WHERE salary =
 (
-    SELECT avg_sal
-    FROM avg_salary
+    SELECT MAX(salary)
+    FROM employees
 );
 ```
 
 ---
 
-## Aliases
-
-### Column Alias
+## Multi Row Subquery
 
 ```sql
-SELECT salary AS employee_salary
-FROM employees;
-```
-
-### Table Alias
-
-```sql
-SELECT e.name
-FROM employees e;
+SELECT name
+FROM employees
+WHERE dept_id IN
+(
+    SELECT id
+    FROM departments
+    WHERE location = 'NY'
+);
 ```
 
 ---
 
-# 🎯 SQL Codility Patterns
+# 🎯 Codility Patterns
 
 ## Find Duplicates
 
 ```sql
 SELECT email,
-       COUNT(*) AS cnt
+       COUNT(*)
 FROM users
 GROUP BY email
 HAVING COUNT(*) > 1;
@@ -615,7 +1044,7 @@ HAVING COUNT(*) > 1;
 
 ---
 
-## Second Highest Value
+## Second Highest Salary
 
 ```sql
 SELECT MAX(salary)
@@ -625,28 +1054,6 @@ WHERE salary <
     SELECT MAX(salary)
     FROM employees
 );
-```
-
----
-
-## Nth Highest Value
-
-```sql
-SELECT salary
-FROM employees
-ORDER BY salary DESC
-LIMIT 1 OFFSET N-1;
-```
-
----
-
-## Count Records Per Group
-
-```sql
-SELECT department,
-       COUNT(*)
-FROM employees
-GROUP BY department;
 ```
 
 ---
@@ -665,113 +1072,16 @@ WHERE salary >
 
 ---
 
-# ⚡ Last-Minute Exam Tips
+## Top N Records
 
-## Python
-
-Know these without notes:
-
-- `def`
-- `return`
-- `lambda`
-- `enumerate()`
-- `zip()`
-- `sorted(..., key=...)`
-- List comprehension
-- `any()`
-- `all()`
-- `min()`
-- `max()`
-- `sum()`
-- `len()`
+```sql
+SELECT *
+FROM employees
+ORDER BY salary DESC
+LIMIT 5;
+```
 
 ---
 
-## Pandas
 
-Know these without notes:
 
-- `read_csv()`
-- `drop_duplicates()`
-- `dropna()`
-- `rename()`
-- filtering rows
-- `astype("category")`
-- create new column
-- reorder columns
-- `return df`
-
----
-
-## SQL
-
-Know these without notes:
-
-- `SELECT`
-- `DISTINCT`
-- `WHERE`
-- `JOIN`
-- `GROUP BY`
-- `HAVING`
-- `COUNT`
-- `SUM`
-- `AVG`
-- `MIN`
-- `MAX`
-- `WITH`
-- aliases
-
----
-
-# ✅ Final Exam Checklist
-
-## Python
-
-- [ ] Functions
-- [ ] Parameters
-- [ ] *args
-- [ ] **kwargs
-- [ ] return
-- [ ] lambda
-- [ ] enumerate()
-- [ ] zip()
-- [ ] list comprehension
-- [ ] any()
-- [ ] all()
-- [ ] min()
-- [ ] max()
-- [ ] sum()
-- [ ] len()
-
-## Pandas
-
-- [ ] Series
-- [ ] DataFrame
-- [ ] read_csv()
-- [ ] drop_duplicates()
-- [ ] dropna()
-- [ ] rename()
-- [ ] filtering
-- [ ] astype("category")
-- [ ] new column
-- [ ] reorder columns
-- [ ] return df
-
-## SQL
-
-- [ ] SELECT
-- [ ] DISTINCT
-- [ ] WHERE
-- [ ] JOIN
-- [ ] GROUP BY
-- [ ] HAVING
-- [ ] COUNT
-- [ ] SUM
-- [ ] AVG
-- [ ] MIN
-- [ ] MAX
-- [ ] WITH (CTE)
-- [ ] Aliases
-- [ ] Find Duplicates
-- [ ] Second Highest Value
-- [ ] Above Average Salary
