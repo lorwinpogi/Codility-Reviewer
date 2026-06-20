@@ -2,25 +2,6 @@
 
 > Quick-review guide for common Codility assessments.
 
----
-
-# 📑 Table of Contents
-
-- [Python](#-python)
-  - [Functions](#functions)
-  - [For Loops](#for-loops)
-  - [If / Else Conditions](#if--else-conditions)
-  - [Lists](#lists)
-  - [Strings](#strings)
-  - [Dictionaries & Counting](#dictionaries--counting)
-  - [Max / Min Logic](#max--min-logic)
-  - [Date / Month Handling](#date--month-handling)
-  - [Edge Cases](#edge-cases)
-- [Pandas](#-pandas)
-- [SQL](#-sql)
-- [Final Checklist](#-final-checklist)
-
----
 
 # 🐍 Python
 
