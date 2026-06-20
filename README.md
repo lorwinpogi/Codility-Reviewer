@@ -1,189 +1,212 @@
-# 🚀 Codility Reviewer (Python, Pandas, SQL)
-
-> Quick-review guide for common Codility assessments.
+# Codility Reviewer
 
 
-# 🐍 Python
+---
 
-## Functions
+# 🐍 Python Functions
 
-### Definition
-A function is a reusable block of code that performs a specific task.
+## def
 
-### Syntax
-
-```python
-def function_name():
-    pass
-```
-
-### Example
-
-```python
-def greet():
-    print("Hello")
-
-greet()
-```
-
-Output:
-
-```text
-Hello
-```
-
-### Parameters
-
-```python
-def greet(name):
-    print("Hello", name)
-
-greet("John")
-```
-
-Output:
-
-```text
-Hello John
-```
-
-### Return Values
+Used to define a function.
 
 ```python
 def add(a, b):
     return a + b
-
-result = add(5, 3)
-
-print(result)
 ```
 
-Output:
+### Common Mistake
 
-```text
-8
-```
-
-### ⚠️ Common Codility Mistake
-
-❌ Wrong
+❌ Missing colon
 
 ```python
-def solution(a, b):
-    print(a + b)
+def add(a, b)
 ```
 
 ✅ Correct
 
 ```python
-def solution(a, b):
-    return a + b
+def add(a, b):
 ```
 
 ---
 
-## For Loops
+## return
 
-### Basic Loop
+Returns a value from a function.
 
 ```python
-for i in range(5):
-    print(i)
+def square(x):
+    return x * x
+```
+
+### Common Mistake
+
+❌ Using print instead of return
+
+```python
+def square(x):
+    print(x * x)
+```
+
+✅ Correct
+
+```python
+def square(x):
+    return x * x
+```
+
+---
+
+## Parameters
+
+```python
+def greet(name):
+    return f"Hello {name}"
 ```
 
 Output:
 
 ```text
-0
-1
-2
+Hello Ana
+```
+
+---
+
+## Positional Arguments
+
+```python
+def divide(a, b):
+    return a / b
+
+divide(10, 2)
+```
+
+---
+
+## Keyword Arguments
+
+```python
+def divide(a, b):
+    return a / b
+
+divide(b=2, a=10)
+```
+
+---
+
+## Default Arguments
+
+```python
+def power(base, exp=2):
+    return base ** exp
+
+power(3)
+```
+
+Output:
+
+```text
+9
+```
+
+---
+
+## *args
+
+Accept unlimited positional arguments.
+
+```python
+def total(*args):
+    return sum(args)
+
+print(total(1, 2, 3))
+```
+
+Output:
+
+```text
+6
+```
+
+---
+
+## **kwargs
+
+Accept unlimited keyword arguments.
+
+```python
+def info(**kwargs):
+    return kwargs
+
+print(info(name="Ana", age=20))
+```
+
+Output:
+
+```python
+{'name': 'Ana', 'age': 20}
+```
+
+---
+
+## lambda
+
+Anonymous one-line function.
+
+```python
+square = lambda x: x * x
+
+print(square(5))
+```
+
+Output:
+
+```text
+25
+```
+
+Common use:
+
+```python
+sorted(data, key=lambda x: x[1])
+```
+
+---
+
+# 🔥 Most Important Python Built-ins
+
+## len()
+
+```python
+len([1, 2, 3])
+```
+
+Output:
+
+```text
 3
-4
-```
-
-### Loop Through List
-
-```python
-names = ["John", "Jane", "Mark"]
-
-for name in names:
-    print(name)
-```
-
-### Loop With Index
-
-```python
-names = ["John", "Jane"]
-
-for i in range(len(names)):
-    print(i, names[i])
-```
-
-### ⚠️ Common Mistake
-
-❌ Wrong
-
-```python
-for i in range(len(numbers)+1):
-```
-
-✅ Correct
-
-```python
-for i in range(len(numbers)):
 ```
 
 ---
 
-## If / Else Conditions
-
-### Basic If
+## sum()
 
 ```python
-age = 18
-
-if age >= 18:
-    print("Adult")
+sum([1, 2, 3])
 ```
 
-### If Else
+Output:
 
-```python
-age = 18
-
-if age >= 18:
-    print("Adult")
-else:
-    print("Minor")
-```
-
-### If Elif Else
-
-```python
-score = 85
-
-if score >= 90:
-    print("A")
-elif score >= 80:
-    print("B")
-else:
-    print("C")
+```text
+6
 ```
 
 ---
 
-## Lists
-
-### Create List
+## min()
 
 ```python
-numbers = [1, 2, 3, 4]
-```
-
-### Access Elements
-
-```python
-print(numbers[0])
+min([4, 1, 7])
 ```
 
 Output:
@@ -192,333 +215,101 @@ Output:
 1
 ```
 
-### Useful Operations
-
-```python
-numbers.append(5)
-
-numbers.remove(2)
-
-len(numbers)
-
-max(numbers)
-
-min(numbers)
-```
-
-### Loop Through List
-
-```python
-for num in numbers:
-    print(num)
-```
-
 ---
 
-## Strings
-
-### lower()
-
-Convert text to lowercase.
+## max()
 
 ```python
-text = "HELLO"
-
-print(text.lower())
+max([4, 1, 7])
 ```
 
 Output:
 
 ```text
-hello
+7
 ```
 
 ---
 
-### split()
+## enumerate()
 
-Convert string → list.
-
-```python
-text = "apple,banana,orange"
-
-result = text.split(",")
-```
-
-Output:
+Returns index and value together.
 
 ```python
-['apple', 'banana', 'orange']
-```
+names = ["Ana", "Bob"]
 
----
-
-### replace()
-
-```python
-text = "Hello World"
-
-print(text.replace("World", "Python"))
+for i, name in enumerate(names):
+    print(i, name)
 ```
 
 Output:
 
 ```text
-Hello Python
+0 Ana
+1 Bob
 ```
 
 ---
 
-### join()
+## zip()
 
-Convert list → string.
+Loops through multiple lists simultaneously.
 
 ```python
-fruits = ["apple", "banana", "orange"]
+a = [1, 2]
+b = [3, 4]
 
-result = ",".join(fruits)
+for x, y in zip(a, b):
+    print(x, y)
 ```
 
 Output:
 
 ```text
-apple,banana,orange
+1 3
+2 4
 ```
 
 ---
 
-## Dictionaries & Counting
-
-### Dictionary
+## List Comprehension
 
 ```python
-student = {
-    "name": "John",
-    "age": 20
-}
-```
-
-### Access Value
-
-```python
-print(student["name"])
+squares = [x*x for x in range(5)]
 ```
 
 Output:
 
-```text
-John
+```python
+[0, 1, 4, 9, 16]
 ```
 
 ---
 
-### Frequency Counting
+## any()
 
 ```python
-words = ["apple", "banana", "apple"]
-
-count = {}
-
-for word in words:
-
-    if word in count:
-        count[word] += 1
-
-    else:
-        count[word] = 1
-
-print(count)
+any(x > 0 for x in [-1, -2, 3])
 ```
 
 Output:
 
-```python
-{
-    "apple": 2,
-    "banana": 1
-}
+```text
+True
 ```
 
 ---
 
-### Faster Method
+## all()
 
 ```python
-from collections import Counter
-
-words = ["apple", "banana", "apple"]
-
-print(Counter(words))
-```
-
-Output:
-
-```python
-Counter({'apple': 2, 'banana': 1})
-```
-
----
-
-## Max / Min Logic
-
-### Maximum
-
-```python
-numbers = [10, 5, 20, 8]
-
-print(max(numbers))
+all(x > 0 for x in [1, 2, 3])
 ```
 
 Output:
 
 ```text
-20
-```
-
-### Minimum
-
-```python
-print(min(numbers))
-```
-
-Output:
-
-```text
-5
-```
-
-### Manual Maximum
-
-```python
-numbers = [10, 5, 20, 8]
-
-largest = numbers[0]
-
-for num in numbers:
-
-    if num > largest:
-        largest = num
-
-print(largest)
-```
-
----
-
-## Date / Month Handling
-
-### Extract Year
-
-```python
-date = "2024-05-12"
-
-year = date.split("-")[0]
-
-print(year)
-```
-
-Output:
-
-```text
-2024
-```
-
-### Extract Month
-
-```python
-date = "2024-05-12"
-
-month = date.split("-")[1]
-
-print(month)
-```
-
-Output:
-
-```text
-05
-```
-
-### Month Conversion
-
-```python
-months = {
-    "01": "January",
-    "02": "February",
-    "03": "March",
-    "04": "April",
-    "05": "May"
-}
-
-print(months["05"])
-```
-
-Output:
-
-```text
-May
-```
-
----
-
-## Edge Cases
-
-Always test:
-
-### Empty List
-
-```python
-[]
-```
-
-### One Element
-
-```python
-[5]
-```
-
-### Duplicate Values
-
-```python
-[1, 1, 1]
-```
-
-### Negative Numbers
-
-```python
-[-5, -10, -1]
-```
-
-### Empty String
-
-```python
-""
-```
-
-### Large Input
-
-```python
-range(100000)
-```
-
-### Safe Max Example
-
-❌ Wrong
-
-```python
-max([])
-```
-
-Raises:
-
-```text
-ValueError
-```
-
-✅ Correct
-
-```python
-if numbers:
-    print(max(numbers))
+True
 ```
 
 ---
@@ -533,9 +324,34 @@ import pandas as pd
 
 ---
 
-## drop_duplicates()
+## Series
 
-Remove duplicate rows.
+```python
+s = pd.Series([10, 20, 30])
+```
+
+---
+
+## DataFrame
+
+```python
+df = pd.DataFrame({
+    "a": [1, 2],
+    "b": [3, 4]
+})
+```
+
+---
+
+## read_csv()
+
+```python
+df = pd.read_csv("data.csv")
+```
+
+---
+
+## drop_duplicates()
 
 ```python
 df = df.drop_duplicates()
@@ -545,8 +361,6 @@ df = df.drop_duplicates()
 
 ## dropna()
 
-Remove rows with missing values.
-
 ```python
 df = df.dropna()
 ```
@@ -554,8 +368,6 @@ df = df.dropna()
 ---
 
 ## rename()
-
-Rename columns.
 
 ```python
 df = df.rename(
@@ -578,7 +390,10 @@ df = df[df["Age"] > 18]
 ## astype("category")
 
 ```python
-df["Department"] = df["Department"].astype("category")
+df["Department"] = (
+    df["Department"]
+    .astype("category")
+)
 ```
 
 ---
@@ -587,9 +402,9 @@ df["Department"] = df["Department"].astype("category")
 
 ```python
 df["Full_Name"] = (
-    df["First_Name"]
-    + " "
-    + df["Last_Name"]
+    df["First_Name"] +
+    " " +
+    df["Last_Name"]
 )
 ```
 
@@ -613,36 +428,25 @@ return df
 
 ---
 
-## Common Codility Template
+# 🗄️ SQL Fundamentals
 
-```python
-import pandas as pd
+## SELECT
 
-def solution(df):
+Retrieve data.
 
-    df = df.drop_duplicates()
-
-    df = df.dropna()
-
-    df = df.rename(
-        columns={
-            "Name": "Full_Name"
-        }
-    )
-
-    return df
+```sql
+SELECT *
+FROM employees;
 ```
 
 ---
 
-# 🗄️ SQL
+## DISTINCT
 
-## SELECT
-
-Retrieve columns.
+Remove duplicates.
 
 ```sql
-SELECT *
+SELECT DISTINCT department
 FROM employees;
 ```
 
@@ -660,16 +464,14 @@ WHERE salary > 50000;
 
 ---
 
-## JOIN
+## ORDER BY
 
-Combine tables.
+Sort results.
 
 ```sql
-SELECT e.name,
-       d.department
-FROM employees e
-JOIN departments d
-ON e.employee_id = d.employee_id;
+SELECT *
+FROM employees
+ORDER BY salary DESC;
 ```
 
 ---
@@ -689,7 +491,7 @@ GROUP BY department;
 
 ## HAVING
 
-Filter grouped results.
+Filter grouped records.
 
 ```sql
 SELECT department,
@@ -701,37 +503,57 @@ HAVING COUNT(*) > 5;
 
 ---
 
-## Aggregation Functions
+## JOIN
 
-### COUNT
+Combine tables.
+
+```sql
+SELECT e.name,
+       d.department
+FROM employees e
+JOIN departments d
+ON e.employee_id = d.employee_id;
+```
+
+---
+
+## COUNT
 
 ```sql
 SELECT COUNT(*)
 FROM employees;
 ```
 
-### SUM
+---
+
+## SUM
 
 ```sql
 SELECT SUM(salary)
 FROM employees;
 ```
 
-### AVG
+---
+
+## AVG
 
 ```sql
 SELECT AVG(salary)
 FROM employees;
 ```
 
-### MIN
+---
+
+## MIN
 
 ```sql
 SELECT MIN(salary)
 FROM employees;
 ```
 
-### MAX
+---
+
+## MAX
 
 ```sql
 SELECT MAX(salary)
@@ -740,7 +562,7 @@ FROM employees;
 
 ---
 
-## CTE (WITH Clause)
+## WITH (CTE)
 
 ```sql
 WITH avg_salary AS (
@@ -778,3 +600,178 @@ FROM employees e;
 ```
 
 ---
+
+# 🎯 SQL Codility Patterns
+
+## Find Duplicates
+
+```sql
+SELECT email,
+       COUNT(*) AS cnt
+FROM users
+GROUP BY email
+HAVING COUNT(*) > 1;
+```
+
+---
+
+## Second Highest Value
+
+```sql
+SELECT MAX(salary)
+FROM employees
+WHERE salary <
+(
+    SELECT MAX(salary)
+    FROM employees
+);
+```
+
+---
+
+## Nth Highest Value
+
+```sql
+SELECT salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 1 OFFSET N-1;
+```
+
+---
+
+## Count Records Per Group
+
+```sql
+SELECT department,
+       COUNT(*)
+FROM employees
+GROUP BY department;
+```
+
+---
+
+## Above Average Salary
+
+```sql
+SELECT *
+FROM employees
+WHERE salary >
+(
+    SELECT AVG(salary)
+    FROM employees
+);
+```
+
+---
+
+# ⚡ Last-Minute Exam Tips
+
+## Python
+
+Know these without notes:
+
+- `def`
+- `return`
+- `lambda`
+- `enumerate()`
+- `zip()`
+- `sorted(..., key=...)`
+- List comprehension
+- `any()`
+- `all()`
+- `min()`
+- `max()`
+- `sum()`
+- `len()`
+
+---
+
+## Pandas
+
+Know these without notes:
+
+- `read_csv()`
+- `drop_duplicates()`
+- `dropna()`
+- `rename()`
+- filtering rows
+- `astype("category")`
+- create new column
+- reorder columns
+- `return df`
+
+---
+
+## SQL
+
+Know these without notes:
+
+- `SELECT`
+- `DISTINCT`
+- `WHERE`
+- `JOIN`
+- `GROUP BY`
+- `HAVING`
+- `COUNT`
+- `SUM`
+- `AVG`
+- `MIN`
+- `MAX`
+- `WITH`
+- aliases
+
+---
+
+# ✅ Final Exam Checklist
+
+## Python
+
+- [ ] Functions
+- [ ] Parameters
+- [ ] *args
+- [ ] **kwargs
+- [ ] return
+- [ ] lambda
+- [ ] enumerate()
+- [ ] zip()
+- [ ] list comprehension
+- [ ] any()
+- [ ] all()
+- [ ] min()
+- [ ] max()
+- [ ] sum()
+- [ ] len()
+
+## Pandas
+
+- [ ] Series
+- [ ] DataFrame
+- [ ] read_csv()
+- [ ] drop_duplicates()
+- [ ] dropna()
+- [ ] rename()
+- [ ] filtering
+- [ ] astype("category")
+- [ ] new column
+- [ ] reorder columns
+- [ ] return df
+
+## SQL
+
+- [ ] SELECT
+- [ ] DISTINCT
+- [ ] WHERE
+- [ ] JOIN
+- [ ] GROUP BY
+- [ ] HAVING
+- [ ] COUNT
+- [ ] SUM
+- [ ] AVG
+- [ ] MIN
+- [ ] MAX
+- [ ] WITH (CTE)
+- [ ] Aliases
+- [ ] Find Duplicates
+- [ ] Second Highest Value
+- [ ] Above Average Salary
